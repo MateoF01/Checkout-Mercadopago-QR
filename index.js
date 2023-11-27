@@ -29,7 +29,6 @@ async function generarQRDesdeURL(url, nombreArchivo) {
   try {
     const codigoQR = await qrcode.toDataURL(url);
 
-    // Puedes guardar el código QR en un archivo de imagen
     const rutaArchivo = `${nombreArchivo}.png`;
     await fs.writeFile(rutaArchivo, codigoQR.split(';base64,').pop(), { encoding: 'base64' });
 
